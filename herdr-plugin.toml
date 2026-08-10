@@ -1,0 +1,26 @@
+id = "herdr-code-review"
+name = "Herdr Code Review"
+version = "0.2.0"
+description = "Launch a structured AI code review in Herdr, show the findings in a review pane, and send the result back to the focused agent."
+min_herdr_version = "0.7.5"
+platforms = ["macos", "linux", "windows"]
+
+[[build]]
+command = ["node", "-e", "const major = Number(process.versions.node.split('.')[0]); if (major < 22) { console.error('Node.js >= 22 required'); process.exit(1); }"]
+
+[[build]]
+command = ["npm", "test"]
+
+[[actions]]
+id = "review-split"
+title = "Review changes in split"
+description = "Review staged and unstaged changes beside the focused pane, then send findings back."
+command = ["node", "bin/code-review.js", "--mode", "split"]
+contexts = ["workspace", "pane"]
+
+[[actions]]
+id = "review-tab"
+title = "Review changes in tab"
+description = "Review staged and unstaged changes in a dedicated tab, then send findings back."
+command = ["node", "bin/code-review.js", "--mode", "tab"]
+contexts = ["workspace", "pane"]

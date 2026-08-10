@@ -1,0 +1,17 @@
+{
+  "name": "herdr-code-review",
+  "version": "0.2.0",
+  "description": "Structured AI code review plugin for Herdr",
+  "main": "bin/code-review.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "herdr",
+    "herdr-plugin",
+    "code-review",
+    "agent"
+  ],
+  "license": "MIT"
+}
